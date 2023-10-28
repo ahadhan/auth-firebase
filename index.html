@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In </title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href="C:\Users\Rrs computers\Downloads\"> -->
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth-compat.js"></script>
+
+</head>
+
+<body class="pt-2">
+  <div class="alert alert-warning alert-dismissible fade show container mt-0 " id="alert" role="alert">
+    <p id="alert-text"></p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+
+  <!-- <div class="upper-image">
+  </div> -->
+  <div class="overAll login container d-flex justify-content-center align-items-center w-75 p-1 mt-5 ">
+
+    <div class="left-image w-75">
+      <img src="images/image-left-removebg-preview.png" alt="">
+    </div>
+
+
+    <div class="container form-con ">
+      <form class="bg-light p-3 " id="login">
+        <h3 class="text-center">Login</h3>
+        <div class="mb-3 ">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Enter your email</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" onclick="showPassword()">
+          <label class="form-check-label" for="exampleCheck1">Show Password</label>
+        </div>
+        <button type="submit my-3" onclick="signIn()" class="btn btn-primary">Submit</button>
+
+        <div class="create-acc">
+          <a onclick="changePagetoCA(event)" href="#">
+            <p>Create an account?</p>
+          </a>
+        </div>
+      </form>
+
+      <!-- //signup// -->
+
+
+      <form class="bg-light p-3" id="signup">
+        <h3 class="text-center">Create New Account</h3>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="firsNameInput1" class="form-label">First Name</label>
+            <input type="text" class="form-control " id="firsNameInput1" aria-describedby="emailHelp">
+          </div>
+          <div class="col-md-6">
+            <label for="lastNameInput4" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastNameInput4" aria-label="Last name">
+          </div>
+        </div>
+        <div class="mb-3 ">
+          <label for="exampleInputEmail2" class="form-label">Email address</label>
+          <input type="email" class="form-control " id="exampleInputEmail2" aria-describedby="emailHelp">
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="exampleInputPassword2" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2">
+          </div>
+          <div class="col-md-6">
+            <label for="confirminputPassword4" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirminputPassword4">
+          </div>
+          <div id="passwordHelp" class="form-text">Enter new Password</div>
+
+        </div>
+
+        <div class="create-acc mt-3">
+          <a onclick="changePagetoLogin(event)" href="/">
+            <p>already have an account?</p>
+          </a>
+        </div>
+        <button type="submit"  onclick="signUp()" class="btn btn-primary">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container-foot">
+      <a class="btn-foot btn-2"> Developed by A. Ahad Dev © </a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <!-- <script src="C:\Users\Rrs computers\Downloads"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- <script src="app.js"></script> -->
+  <script src="main.js"></script>
+  
+  <!-- <script type="module">
+
+
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA_AgHs0IWU4Y99_6Ly1MXaULkFiSo73SU",
+      authDomain: "login-auth-cdde5.firebaseapp.com",
+      projectId: "login-auth-cdde5",
+      storageBucket: "login-auth-cdde5.appspot.com",
+      messagingSenderId: "350974683334",
+      appId: "1:350974683334:web:afe9af2f2005612cde4fc7"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // console.log(firebaseConfig);
+
+    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+    let email = document.getElementById("exampleInputEmail1");
+    let password = document.getElementById("exampleInputPassword1");
+
+
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+
+
+    let login = document.getElementById("login");
+    let signUp = document.getElementById("signup");
+    let errorsAlert = document.getElementById("alert");
+    let alertText = document.getElementById("alert-text");
+    let userInNav = document.getElementById("user-in-nav");
+    let deleteAllBtn = document.getElementById("delete-all");
+    let showAllBtn = document.getElementById("show-all");
+
+
+    let firstName = document.getElementById("firsNameInput1");
+    let lastName = document.getElementById("lastNameInput4");
+    let email2 = document.getElementById("exampleInputEmail2");
+    let confirmPassword = document.getElementById("confirminputPassword4");
+    let passwordCA = document.getElementById("exampleInputPassword2");
+
+
+  </script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+
+body{
+    background-image: url(images/bg-todo.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    
+}
+
+.left-image{
+    background-color: lightblue;
+    height: 100%;
+    border-radius: 3.5px;
+}
+
+.upper-image{
+    display: grid;        
+    grid-column: auto;
+    background-image: url(https://i.pinimg.com/originals/b8/46/44/b84644e278e8a7b233d107a903e68bf7.gif);
+    height: 20vh;
+    visibility:hidden;
+}
+
+.overAll{
+    height: 80vh;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 9px;
+}
+
+#signup{
+    display: none;
+}
+
+/* #login{
+    /* display: none; */
+
+
+.alert{
+    display: none;
+}
+
+
+
+/* DASHBOARD  */
+
+
+
+.logo{
+    width: 3rem;
+    transform: rotateX('180deg');
+    /* transition: 3s; */
+}
+
+.main{
+    margin-top: 15vh;
+}
+
+.item-li{
+   height: 2rem;
+   background-color: rgb(5, 225, 174);
+   color: aliceblue;
+   padding:5px;
+   border-radius: 10px;
+}
+
+.ul{
+    margin-left: -2rem;
+    grid-column: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.btn{
+    margin: 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 20rem;
+}
+
+.deleteAll{
+    width: 24%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.showAll{
+    width: 24%;
+    justify-content: center;
+    margin: auto;
+    margin-top: 3rem;
+
+}
+
+.input{
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    margin-left: 2rem;
+}
+
+/* .fa-solid{
+    width: 20px;
+    height: 20px; 
+} */
+/* .navbar{
+    background-color: #efa365;
+} */
+
+
+    /* Section for Media queries */
+
+
+@media only screen and (max-width: 900px) {
+    .left-image{
+        display: none;
+    }    
+    .upper-image{
+        visibility: visible;
+        display: flex;
+
+    }
+    .overAll{
+        background-color: #ADD8E6;
+        height: fit-content;
+        padding: 0;
+        width: 90vw !important;
+    }
+    body{
+        height: 100vh;
+    }
+
+    .btn{
+        width: fit-content;
+    }
+}
+
+
+.btn-foot {
+    background-image: linear-gradient(60deg, #E21143, #FFB03A);
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 5px;
+    
+}
+.container-foot{
+    position: fixed;
+    bottom: 1rem;
+    margin-left: 42vw;
+}
+
+.btn-foot:hover{
+    transform: scaleX(1);
+}
+
+
+
